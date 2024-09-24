@@ -1,3 +1,3 @@
-![Prisma Core](https://shadowlona.dev/assets/Prisma_name_transparent.png)
+![Prisma Core](https://shadowlona.dev/assets/Prisma_name_transparent_trim.png)
 
 # WIP
