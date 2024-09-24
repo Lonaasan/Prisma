@@ -1,0 +1,22 @@
+[
+	{	
+		"op": "add",
+		"path": "/deploymentConfig/scripts/-",
+		"value": "/prisma/core/deployment.lua"
+	},
+	{
+		"op": "add",
+		"path": "/statusControllerSettings/primaryScriptSources/-",
+		"value": "/prisma/core/primary.lua"
+	},
+	{
+		"op": "add",
+		"path": "/companionsConfig/scripts/-",
+		"value": "/prisma/core/companion.lua"
+	},
+	{
+		"op": "add",
+		"path": "/genericScriptContexts/starloader",
+		"value" : "/prisma/core/generic.lua"
+	}
+]
