@@ -15,4 +15,4 @@
 
 ## How do we want to structure Prisma?
 
-- Class structure (Prisma_Core, Prisma_Core_Handlers, Prisma_Core_Storage, etc)
+- table structure (prisma.core, prisma.debug, prisma.debug.log, etc)
