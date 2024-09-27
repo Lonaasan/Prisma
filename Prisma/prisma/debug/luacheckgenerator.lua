@@ -3,6 +3,10 @@ string.prisma.debug = string.prisma.debug or {};
 string.prisma.debug.luacheckgenerator = {};
 
 function string.prisma.debug.luacheckgenerator.luaCheckGlobalsTable(node)
+	if not string.prisma.debug.enabled then
+		return;
+	end;
+
     local resultTable = {}
 
     if type(node) == "table" then
@@ -21,6 +25,10 @@ function string.prisma.debug.luacheckgenerator.luaCheckGlobalsTable(node)
 end
 
 function string.prisma.debug.luacheckgenerator.customEncode(value)
+	if not string.prisma.debug.enabled then
+		return;
+	end;
+
     if type(value) == "table" then
         local elements = {}
         for k, v in pairs(value) do
@@ -38,6 +46,10 @@ function string.prisma.debug.luacheckgenerator.customEncode(value)
 end
 
 function string.prisma.debug.luacheckgenerator.cleanUp(input)
+	if not string.prisma.debug.enabled then
+		return;
+	end;
+
     local output = input:gsub(':', ' =')
     output = output:gsub(' fields = {}', '')
     output = output:gsub('{"', '{ ')
