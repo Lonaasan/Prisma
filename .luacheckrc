@@ -1,6 +1,21 @@
 std = {
 	globals = {
-		_ENV = {},
+		tech = {},
+		sl = {
+			fields = {
+				getConfig = {},
+				loadConfig = {},
+				getModules = {},
+				loadModules = {},
+				searchModule = {},
+				loadHasibound = {}
+			}
+		},
+		_ENV = {
+			fields = {
+				other_fields = true
+			}
+		},
 		jsize = {},
 		_textInputActive = {},
 		rawlen = {},
