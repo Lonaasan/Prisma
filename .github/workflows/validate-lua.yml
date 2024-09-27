@@ -1,0 +1,25 @@
+name: Validate Lua Files
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  validate-lua:
+
+    container:
+      image: woahbase/alpine-lua:5.2.4
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: apk add --update gcc alpine-sdk
+      
+    - name: Install luacheck
+      run: luarocks install luacheck
+        
+    - name: Run luacheck
+      run: luacheck ./Prisma/
