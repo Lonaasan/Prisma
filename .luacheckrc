@@ -1,5 +1,6 @@
 std = {
 	globals = {
+		thirdpartyenabled = {},
 		tech = {},
 		sl = {
 			fields = {
@@ -12,9 +13,7 @@ std = {
 			}
 		},
 		_ENV = {
-			fields = {
-				other_fields = true
-			}
+			other_fields = true
 		},
 		jsize = {},
 		_textInputActive = {},
