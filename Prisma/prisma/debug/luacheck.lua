@@ -1,10 +1,16 @@
+--- Prisma Debug Luacheck | https://github.com/Lonaasan/Prisma/blob/main/Prisma/prisma/debug/luacheck.lua
+--- Author: Lonaasan
+
 string.prisma = string.prisma or {};
 string.prisma.debug = string.prisma.debug or {};
-string.prisma.debug.luacheckgenerator = {};
+string.prisma.debug.luacheck = {};
 
-prismaDebugLuacheckGenerator = {};
+prismaDebugLuacheck = {};
 
-function prismaDebugLuacheckGenerator.luaCheckGlobalsTable(node)
+---Generate a table of all global variables
+---@param node table
+---@return table
+function prismaDebugLuacheck.globalsTable(node)
     if not string.prisma.debug.enabled then
         return;
     end
@@ -14,7 +20,7 @@ function prismaDebugLuacheckGenerator.luaCheckGlobalsTable(node)
     if type(node) == "table" then
         for nodeName, nodeValue in pairs(node) do
             if type(nodeValue) == "table" then
-                resultTable[nodeName] = prismaDebugLuacheckGenerator.luaCheckGlobalsTable(nodeValue)
+                resultTable[nodeName] = prismaDebugLuacheck.globalsTable(nodeValue)
             elseif type(nodeValue) == "function" then
                 resultTable[nodeName] = {} -- Replace functions with an empty table
             else
@@ -26,7 +32,10 @@ function prismaDebugLuacheckGenerator.luaCheckGlobalsTable(node)
     return resultTable
 end
 
-function prismaDebugLuacheckGenerator.customEncode(value)
+---Custom encode function to handle tables
+---@param value table
+---@return string
+function prismaDebugLuacheck.customEncode(value)
     if not string.prisma.debug.enabled then
         return;
     end
@@ -35,7 +44,7 @@ function prismaDebugLuacheckGenerator.customEncode(value)
         local elements = {}
         for k, v in pairs(value) do
             local key = type(k) == "string" and string.format('"%s": ', k) or ""
-            table.insert(elements, key .. prismaDebugLuacheckGenerator.customEncode(v))
+            table.insert(elements, key .. prismaDebugLuacheck.customEncode(v))
         end
         return "{ fields: {" .. table.concat(elements, ", ") .. "}}"
     elseif type(value) == "string" then
@@ -47,7 +56,10 @@ function prismaDebugLuacheckGenerator.customEncode(value)
     end
 end
 
-function prismaDebugLuacheckGenerator.cleanUp(input)
+---Clean up the output string
+---@param input string
+---@return string
+function prismaDebugLuacheck.cleanUp(input)
     if not string.prisma.debug.enabled then
         return;
     end
@@ -60,6 +72,5 @@ function prismaDebugLuacheckGenerator.cleanUp(input)
     return output
 end
 
-
 --- Export the functions for 3rd parties to use without the possibility of changing the original code
-string.prisma.debug.luacheckgenerator = prismaDebugLuacheckGenerator;
+string.prisma.debug.luacheck = prismaDebugLuacheck;

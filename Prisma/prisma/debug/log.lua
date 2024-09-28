@@ -1,9 +1,16 @@
+---Prisma Debug Logger | https://github.com/Lonaasan/Prisma/blob/main/Prisma/prisma/debug/log.lua
+---Author: Lonaasan
+
 string.prisma = string.prisma or {};
 string.prisma.debug = string.prisma.debug or {};
 string.prisma.debug.log = {};
 
 prismaDebugLog = {}
 
+---Log a table in a list format
+---@param node table
+---@param displayString string
+---@return void
 function prismaDebugLog.tableList(node, displayString)
     if not string.prisma.debug.enabled then
         return;
@@ -16,6 +23,10 @@ function prismaDebugLog.tableList(node, displayString)
     end
 end
 
+---Log a table in a tree format
+---@param node table
+---@param displayString string
+---@return void
 function prismaDebugLog.tableTree(node, displayString)
     if not string.prisma.debug.enabled then
         return;
@@ -32,6 +43,10 @@ function prismaDebugLog.tableTree(node, displayString)
     end
 end
 
+---Log a table in a detailed tree format
+---@param node table
+---@param displayString string
+---@return void
 function prismaDebugLog.detailedTableTree(node, displayString)
     if not string.prisma.debug.enabled then
         return;
@@ -51,6 +66,10 @@ function prismaDebugLog.detailedTableTree(node, displayString)
     end
 end
 
+---Log a message with a title
+---@param message string
+---@param title? string
+---@return void
 function prismaDebugLog.info(message, title)
     if not string.prisma.debug.enabled then
         return;
@@ -60,6 +79,10 @@ function prismaDebugLog.info(message, title)
     sb.logInfo("\n[%s] %s", title, message);
 end
 
+---Logs a warning message with a title
+---@param message string
+---@param title? string
+---@return void
 function prismaDebugLog.warn(message, title)
     if not string.prisma.debug.enabled then
         return;
@@ -69,6 +92,10 @@ function prismaDebugLog.warn(message, title)
     sb.logWarn("\n[%s] %s", title, message);
 end
 
+---Logs an error message with a title
+---@param message string
+---@param title? string
+---@return void
 function prismaDebugLog.error(message, title)
     if not string.prisma.debug.enabled then
         return;

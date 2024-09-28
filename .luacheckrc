@@ -1,8 +1,8 @@
 std = {
     globals = {
-        prismaDebugLuacheckGenerator = {
+        prismaDebugLuacheck = {
             fields = {
-                luaCheckGlobalsTable = {},
+                globalsTable = {},
                 customEncode = {},
                 cleanUp = {}
             }
@@ -310,7 +310,7 @@ std = {
                         debug = {
                             fields = {
                                 log = {},
-                                luacheckgenerator = {},
+                                luacheck = {},
                                 enabled = {}
                             }
                         }

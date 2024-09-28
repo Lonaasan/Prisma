@@ -1,5 +1,8 @@
+---Prisma Generic Script | https://github.com/Lonaasan/Prisma/blob/main/Prisma/prisma/core/generic.lua
+---Author: Lonaasan
+
 require("/prisma/debug/log.lua");
-require("/prisma/debug/luacheckgenerator.lua");
+require("/prisma/debug/luacheck.lua");
 
 local _init = init or function()
 end;
@@ -29,11 +32,11 @@ function update(...)
 
         -- prismaDebugLog.detailedTableTree(_ENV, "");
 
-        local resultTable = prismaDebugLuacheckGenerator.luaCheckGlobalsTable(_ENV)
-        local resultString = prismaDebugLuacheckGenerator.customEncode(resultTable)
-        resultString = prismaDebugLuacheckGenerator.cleanUp(resultString)
+        local resultTable = prismaDebugLuacheck.globalsTable(_ENV)
+        local resultString = prismaDebugLuacheck.customEncode(resultTable)
+        resultString = prismaDebugLuacheck.cleanUp(resultString)
         if resultString then
-            sb.logInfo("%s", resultString)
+            prismaDebugLog.info(resultString)
         end
     end
     return _update(...);

@@ -1,3 +1,6 @@
+---Prisma Companion Script | https://github.com/Lonaasan/Prisma/blob/main/Prisma/prisma/core/companion.lua
+---Author: Lonaasan
+
 local _init = init or function()
 end;
 local _update = update or function()
