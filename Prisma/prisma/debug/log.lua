@@ -2,19 +2,21 @@ string.prisma = string.prisma or {};
 string.prisma.debug = string.prisma.debug or {};
 string.prisma.debug.log = {};
 
-function string.prisma.debug.log.tableList(node, displayString)
+prismaDebugLog = {}
+
+function prismaDebugLog.tableList(node, displayString)
     if not string.prisma.debug.enabled then
         return;
     end
     if type(node) == "table" then
         for nodeName, nodeType in pairs(node) do
             sb.logInfo("%s%s : %s", displayString, nodeName, type(nodeType));
-            string.prisma.debug.log.tableList(nodeType, displayString .. nodeName .. ".");
+            prismaDebugLog.tableList(nodeType, displayString .. nodeName .. ".");
         end
     end
 end
 
-function string.prisma.debug.log.tableTree(node, displayString)
+function prismaDebugLog.tableTree(node, displayString)
     if not string.prisma.debug.enabled then
         return;
     end
@@ -25,12 +27,12 @@ function string.prisma.debug.log.tableTree(node, displayString)
                 arrow = "└>";
             end
             sb.logInfo("%s%s %s : %s", displayString, arrow, nodeName, type(nodeType));
-            string.prisma.debug.log.tableTree(nodeType, displayString .. "    ");
+            prismaDebugLog.tableTree(nodeType, displayString .. "    ");
         end
     end
 end
 
-function string.prisma.debug.log.detailedTableTree(node, displayString)
+function prismaDebugLog.detailedTableTree(node, displayString)
     if not string.prisma.debug.enabled then
         return;
     end
@@ -44,12 +46,12 @@ function string.prisma.debug.log.detailedTableTree(node, displayString)
             if type(nodeType) ~= "table" and type(nodeType) ~= "function" then
                 sb.logInfo("%s       %s", displayString, nodeType);
             end
-            string.prisma.debug.log.detailedTableTree(nodeType, displayString .. "    ");
+            prismaDebugLog.detailedTableTree(nodeType, displayString .. "    ");
         end
     end
 end
 
-function string.prisma.debug.log.info(message, title)
+function prismaDebugLog.info(message, title)
     if not string.prisma.debug.enabled then
         return;
     end
@@ -58,7 +60,7 @@ function string.prisma.debug.log.info(message, title)
     sb.logInfo("\n[%s] %s", title, message);
 end
 
-function string.prisma.debug.log.warn(message, title)
+function prismaDebugLog.warn(message, title)
     if not string.prisma.debug.enabled then
         return;
     end
@@ -67,7 +69,7 @@ function string.prisma.debug.log.warn(message, title)
     sb.logWarn("\n[%s] %s", title, message);
 end
 
-function string.prisma.debug.log.error(message, title)
+function prismaDebugLog.error(message, title)
     if not string.prisma.debug.enabled then
         return;
     end
@@ -76,3 +78,6 @@ function string.prisma.debug.log.error(message, title)
     sb.logError("\n[%s] %s", title, message);
 end
 
+
+--- Export the functions for 3rd parties to use without the possibility of changing the original code
+string.prisma.debug.log = prismaDebugLog;

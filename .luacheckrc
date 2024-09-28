@@ -1,5 +1,22 @@
 std = {
     globals = {
+        prismaDebugLuacheckGenerator = {
+            fields = {
+                luaCheckGlobalsTable = {},
+                customEncode = {},
+                cleanUp = {}
+            }
+        },
+        prismaDebugLog = {
+            fields = {
+                tableTree = {},
+                detailedTableTree = {},
+                tableList = {},
+                info = {},
+                warn = {},
+                error = {}
+            }
+        },
         thirdpartyenabled = {},
         tech = {},
         sl = {
@@ -292,23 +309,8 @@ std = {
                         },
                         debug = {
                             fields = {
-                                log = {
-                                    fields = {
-                                        tableTree = {},
-                                        detailedTableTree = {},
-                                        tableList = {},
-                                        info = {},
-                                        warn = {},
-                                        error = {}
-                                    }
-                                },
-                                luacheckgenerator = {
-                                    fields = {
-                                        luaCheckGlobalsTable = {},
-                                        customEncode = {},
-                                        cleanUp = {}
-                                    }
-                                },
+                                log = {},
+                                luacheckgenerator = {},
                                 enabled = {}
                             }
                         }

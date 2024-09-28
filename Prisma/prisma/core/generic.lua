@@ -23,15 +23,15 @@ function update(...)
         localAnimator = string.prisma.localAnimator;
     elseif firstSuccessUpdate then
 
-        string.prisma.debug.log.info("Got the LocalAnimator!");
+        prismaDebugLog.info("Got the LocalAnimator!");
 
         firstSuccessUpdate = false;
 
-        string.prisma.debug.log.detailedTableTree(_ENV, "");
+        -- prismaDebugLog.detailedTableTree(_ENV, "");
 
-        local resultTable = string.prisma.debug.luacheckgenerator.luaCheckGlobalsTable(_ENV)
-        local resultString = string.prisma.debug.luacheckgenerator.customEncode(resultTable)
-        resultString = string.prisma.debug.luacheckgenerator.cleanUp(resultString)
+        local resultTable = prismaDebugLuacheckGenerator.luaCheckGlobalsTable(_ENV)
+        local resultString = prismaDebugLuacheckGenerator.customEncode(resultTable)
+        resultString = prismaDebugLuacheckGenerator.cleanUp(resultString)
         if resultString then
             sb.logInfo("%s", resultString)
         end
