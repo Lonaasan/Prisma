@@ -8,13 +8,13 @@ end;
 string.prisma = string.prisma or {};
 
 function init(...)
-	return _init(...);
-end;
+    return _init(...);
+end
 
 function update(...)
-	return _update(...);
-end;
+    return _update(...);
+end
 
 function uninit(...)
-	return _uninit(...);
-end;
+    return _uninit(...);
+end

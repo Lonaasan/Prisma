@@ -8,12 +8,12 @@ end;
 string.prisma = string.prisma or {};
 
 function init(...)
-	string.prisma.localAnimator = localAnimator;
-	return _init(...);
-end;
+    string.prisma.localAnimator = localAnimator;
+    return _init(...);
+end
 function update(...)
-	return _update(...);
-end;
+    return _update(...);
+end
 function uninit(...)
-	return _uninit(...);
-end;
+    return _uninit(...);
+end

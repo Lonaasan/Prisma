@@ -15,19 +15,19 @@ string.prisma.debug = string.prisma.debug or {};
 string.prisma.debug.enabled = false;
 
 function init(...)
-	return _init(...);
-end;
+    return _init(...);
+end
 
 function update(...)
-	if not localAnimator then
-		localAnimator = string.prisma.localAnimator;
-	elseif firstSuccessUpdate then
+    if not localAnimator then
+        localAnimator = string.prisma.localAnimator;
+    elseif firstSuccessUpdate then
 
-		sb.logInfo("Got the LocalAnimator!");
+        string.prisma.debug.log.info("Got the LocalAnimator!");
 
-		firstSuccessUpdate = false;
+        firstSuccessUpdate = false;
 
-		string.prisma.debug.log.detailedTableTree(_ENV, "");
+        string.prisma.debug.log.detailedTableTree(_ENV, "");
 
         local resultTable = string.prisma.debug.luacheckgenerator.luaCheckGlobalsTable(_ENV)
         local resultString = string.prisma.debug.luacheckgenerator.customEncode(resultTable)
@@ -35,10 +35,10 @@ function update(...)
         if resultString then
             sb.logInfo("%s", resultString)
         end
-	end;
-	return _update(...);
-end;
+    end
+    return _update(...);
+end
 
 function uninit(...)
-	return _uninit(...);
-end;
+    return _uninit(...);
+end

@@ -3,9 +3,9 @@ string.prisma.debug = string.prisma.debug or {};
 string.prisma.debug.luacheckgenerator = {};
 
 function string.prisma.debug.luacheckgenerator.luaCheckGlobalsTable(node)
-	if not string.prisma.debug.enabled then
-		return;
-	end;
+    if not string.prisma.debug.enabled then
+        return;
+    end
 
     local resultTable = {}
 
@@ -14,9 +14,9 @@ function string.prisma.debug.luacheckgenerator.luaCheckGlobalsTable(node)
             if type(nodeValue) == "table" then
                 resultTable[nodeName] = string.prisma.debug.luacheckgenerator.luaCheckGlobalsTable(nodeValue)
             elseif type(nodeValue) == "function" then
-                resultTable[nodeName] = {}  -- Replace functions with an empty table
+                resultTable[nodeName] = {} -- Replace functions with an empty table
             else
-                resultTable[nodeName] = nodeValue  -- Copy other types directly
+                resultTable[nodeName] = nodeValue -- Copy other types directly
             end
         end
     end
@@ -25,9 +25,9 @@ function string.prisma.debug.luacheckgenerator.luaCheckGlobalsTable(node)
 end
 
 function string.prisma.debug.luacheckgenerator.customEncode(value)
-	if not string.prisma.debug.enabled then
-		return;
-	end;
+    if not string.prisma.debug.enabled then
+        return;
+    end
 
     if type(value) == "table" then
         local elements = {}
@@ -37,20 +37,20 @@ function string.prisma.debug.luacheckgenerator.customEncode(value)
         end
         return "{ fields: {" .. table.concat(elements, ", ") .. "}}"
     elseif type(value) == "string" then
-        return "{}" --string.format('"%s"', value)
+        return "{}" -- string.format('"%s"', value)
     elseif type(value) == "number" or type(value) == "boolean" then
-        return "{}" --tostring(value)
+        return "{}" -- tostring(value)
     else
-        return "null"  -- Handle nil values
+        return "null" -- Handle nil values
     end
 end
 
 function string.prisma.debug.luacheckgenerator.cleanUp(input)
-	if not string.prisma.debug.enabled then
-		return;
-	end;
+    if not string.prisma.debug.enabled then
+        return;
+    end
 
-    local output = input:gsub(':', ' =')
+    local output = input:gsub(':', ' =');
     output = output:gsub(' fields = {}', '')
     output = output:gsub('{"', '{ ')
     output = output:gsub(', "', ', ')
