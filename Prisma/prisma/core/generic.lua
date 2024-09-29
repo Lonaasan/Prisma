@@ -20,15 +20,13 @@ string.prisma.debug.enabled = false;
 
 
 
-string.prisma = string.prisma or {};
 string.prisma.api = string.prisma.api or {};
-string.prisma.api.registry = string.prisma.api.registry or {};
-string.prisma.api.registry.mods = string.prisma.api.registry.mods or {};
+string.prisma.api.mods = string.prisma.api.mods or {};
 
 
 
 function init(...)
-    string.prisma.api.registry.mods.TestMod = "TestMod Content";
+    string.prisma.api.mods.TestMod = "TestMod Content";
     return _init(...);
 end
 
@@ -50,8 +48,8 @@ function update(...)
             prismaDebugLog.info(resultString)
         end
 
-        prismaAPIRegistry.registerMods();
-        prismaAPIRegistry.getMods();
+        prismaAPI.registerMods();
+        prismaAPI.getMods();
     end
     return _update(...);
 end

@@ -1,7 +1,7 @@
 std = {
     globals = {
-        prismaAPIRegistryStorage = {},
-        prismaAPIRegistry = {
+        prismaAPIStorage = {},
+        prismaAPI = {
             fields = {
                 registerMods = {},
                 getMods = {}
@@ -338,13 +338,9 @@ std = {
                         },
                         api = {
                             fields = {
-                                registry = {
+                                mods = {
                                     fields = {
-                                        mods = {
-                                            fields = {
-                                                TestMod = {}
-                                            }
-                                        }
+                                        TestMod = {}
                                     }
                                 },
                                 bridge = {}
