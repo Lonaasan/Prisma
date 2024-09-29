@@ -3,7 +3,7 @@
 
 require("/prisma/debug/log.lua");
 require("/prisma/debug/luacheck.lua");
-require("/prisma/api/registry.lua");
+require("/prisma/api/api.lua");
 
 local _init = init or function()
 end;
