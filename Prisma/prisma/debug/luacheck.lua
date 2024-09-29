@@ -1,4 +1,4 @@
---- Prisma Debug Luacheck | https://github.com/Lonaasan/Prisma/blob/main/Prisma/prisma/debug/luacheck.lua
+--- Prisma Debug Luacheck Utils | https://github.com/Lonaasan/Prisma/blob/main/Prisma/prisma/debug/luacheck.lua
 --- Author: Lonaasan
 
 string.prisma = string.prisma or {};

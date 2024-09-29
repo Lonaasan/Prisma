@@ -3,6 +3,7 @@
 
 require("/prisma/debug/log.lua");
 require("/prisma/debug/luacheck.lua");
+require("/prisma/api/registry.lua");
 
 local _init = init or function()
 end;
@@ -17,7 +18,17 @@ string.prisma = string.prisma or {};
 string.prisma.debug = string.prisma.debug or {};
 string.prisma.debug.enabled = false;
 
+
+
+string.prisma = string.prisma or {};
+string.prisma.api = string.prisma.api or {};
+string.prisma.api.registry = string.prisma.api.registry or {};
+string.prisma.api.registry.mods = string.prisma.api.registry.mods or {};
+
+
+
 function init(...)
+    string.prisma.api.registry.mods.TestMod = "TestMod Content";
     return _init(...);
 end
 
@@ -38,6 +49,9 @@ function update(...)
         if resultString then
             prismaDebugLog.info(resultString)
         end
+
+        prismaAPIRegistry.registerMods();
+        prismaAPIRegistry.getMods();
     end
     return _update(...);
 end

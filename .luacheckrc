@@ -1,5 +1,12 @@
 std = {
     globals = {
+        prismaAPIRegistryStorage = {},
+        prismaAPIRegistry = {
+            fields = {
+                registerMods = {},
+                getMods = {}
+            }
+        },
         prismaDebugLuacheck = {
             fields = {
                 globalsTable = {},
@@ -309,9 +316,38 @@ std = {
                         },
                         debug = {
                             fields = {
-                                log = {},
-                                luacheck = {},
+                                log = {
+                                    fields = {
+                                        tableList = {},
+                                        detailedTableTree = {},
+                                        tableTree = {},
+                                        error = {},
+                                        warn = {},
+                                        info = {}
+                                    }
+                                },
+                                luacheck = {
+                                    fields = {
+                                        cleanUp = {},
+                                        customEncode = {},
+                                        globalsTable = {}
+                                    }
+                                },
                                 enabled = {}
+                            }
+                        },
+                        api = {
+                            fields = {
+                                registry = {
+                                    fields = {
+                                        mods = {
+                                            fields = {
+                                                TestMod = {}
+                                            }
+                                        }
+                                    }
+                                },
+                                bridge = {}
                             }
                         }
                     }
