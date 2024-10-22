@@ -1,6 +1,5 @@
 ---Prisma Generic Script | https://github.com/Lonaasan/Prisma/blob/main/Prisma/prisma/core/generic.lua
 ---Author: Lonaasan
-
 require("/prisma/debug/log.lua");
 require("/prisma/debug/luacheck.lua");
 require("/prisma/api/api.lua");
@@ -19,12 +18,8 @@ string.prisma = string.prisma or {};
 string.prisma.debug = string.prisma.debug or {};
 string.prisma.debug.enabled = false;
 
-
-
 string.prisma.api = string.prisma.api or {};
 string.prisma.api.mods = string.prisma.api.mods or {};
-
-
 
 function init(...)
     string.prisma.api.mods.TestMod = "TestMod Content";
@@ -35,11 +30,17 @@ function update(...)
     if not localAnimator then
         localAnimator = string.prisma.localAnimator;
     elseif firstSuccessUpdate then
-        if prismaCompatibilityCheck.IsNeon() then
-            prismaDebugLog.info("We are running with Neon++!");
-        else
-            prismaDebugLog.info("We are not running with Neon++!");
-        end
+
+        prismaDebugLog.info("Checking the environment compatibility...");
+        local environments = {
+            neon = prismaCompatibilityCheck.IsNeon(),
+            star_extensions = prismaCompatibilityCheck.IsStarExtensions(),
+            open_starbound = prismaCompatibilityCheck.IsOpenStarbound(),
+            vanilla = not prismaCompatibilityCheck.IsNeon() and not prismaCompatibilityCheck.IsStarExtensions() and
+                not prismaCompatibilityCheck.IsOpenStarbound()
+        }
+
+        prismaDebugLog.info(environments);
 
         prismaDebugLog.info("Got the LocalAnimator!");
 
@@ -47,12 +48,12 @@ function update(...)
 
         -- prismaDebugLog.detailedTableTree(_ENV, "");
 
-        local resultTable = prismaDebugLuacheck.globalsTable(_ENV)
-        local resultString = prismaDebugLuacheck.customEncode(resultTable)
-        resultString = prismaDebugLuacheck.cleanUp(resultString)
-        if resultString then
-            prismaDebugLog.info(resultString)
-        end
+        -- local resultTable = prismaDebugLuacheck.globalsTable(_ENV)
+        -- local resultString = prismaDebugLuacheck.customEncode(resultTable)
+        -- resultString = prismaDebugLuacheck.cleanUp(resultString)
+        -- if resultString then
+        --     prismaDebugLog.info(resultString)
+        -- end
 
         prismaAPI.registerMods();
         prismaAPI.getMods();

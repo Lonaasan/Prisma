@@ -1,6 +1,5 @@
 ---Prisma Debug Logger | https://github.com/Lonaasan/Prisma/blob/main/Prisma/prisma/debug/log.lua
 ---Author: Lonaasan
-
 string.prisma = string.prisma or {};
 string.prisma.debug = string.prisma.debug or {};
 string.prisma.debug.log = {};
@@ -88,7 +87,7 @@ function prismaDebugLog.warn(message, title)
         return;
     end
 
-	title = title or "   PRISMA   ";
+    title = title or "   PRISMA   ";
     sb.logWarn("[%s] %s", title, message);
 end
 
@@ -101,10 +100,9 @@ function prismaDebugLog.error(message, title)
         return;
     end
 
-	title = title or "   PRISMA   ";
+    title = title or "   PRISMA   ";
     sb.logError("[%s] %s", title, message);
 end
-
 
 --- Export the functions for 3rd parties to use without the possibility of changing the original code
 string.prisma.debug.log = prismaDebugLog;

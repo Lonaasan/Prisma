@@ -2,6 +2,7 @@ std = {
     globals = {
         std = {},
         neon = {},
+        starExtensions = {},
         prismaAPIStorage = {},
         prismaAPI = {
             fields = {
@@ -29,7 +30,8 @@ std = {
         prismaCompatibilityCheck = {
             fields = {
                 IsNeon = {},
-                IsOpenStarbound = {}
+                IsOpenStarbound = {},
+                IsStarExtensions = {}
             }
         },
         thirdpartyenabled = {},
