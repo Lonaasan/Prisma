@@ -1,5 +1,6 @@
 std = {
     globals = {
+        std = {},
         prismaAPIStorage = {},
         prismaAPI = {
             fields = {
