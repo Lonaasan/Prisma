@@ -4,6 +4,7 @@
 require("/prisma/debug/log.lua");
 require("/prisma/debug/luacheck.lua");
 require("/prisma/api/api.lua");
+require("/prisma/compatibility/check.lua");
 
 local _init = init or function()
 end;
@@ -34,6 +35,11 @@ function update(...)
     if not localAnimator then
         localAnimator = string.prisma.localAnimator;
     elseif firstSuccessUpdate then
+        if prismaCompatibilityCheck.IsNeon() then
+            prismaDebugLog.info("We are running with Neon++!");
+        else
+            prismaDebugLog.info("We are not running with Neon++!");
+        end
 
         prismaDebugLog.info("Got the LocalAnimator!");
 

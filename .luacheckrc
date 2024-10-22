@@ -1,6 +1,7 @@
 std = {
     globals = {
         std = {},
+        neon = {},
         prismaAPIStorage = {},
         prismaAPI = {
             fields = {
@@ -23,6 +24,12 @@ std = {
                 info = {},
                 warn = {},
                 error = {}
+            }
+        },
+        prismaCompatibilityCheck = {
+            fields = {
+                IsNeon = {},
+                IsOpenStarbound = {}
             }
         },
         thirdpartyenabled = {},
@@ -313,6 +320,16 @@ std = {
                                 clearDrawables = {},
                                 addDrawable = {},
                                 addLightSource = {}
+                            }
+                        },
+                        compatibility = {
+                            fields = {
+                                check = {
+                                    fields = {
+                                        IsNeon = {},
+                                        IsOpenStarbound = {}
+                                    }
+                                }
                             }
                         },
                         debug = {

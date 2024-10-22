@@ -76,7 +76,7 @@ function prismaDebugLog.info(message, title)
     end
 
     title = title or "   PRISMA   ";
-    sb.logInfo("\n[%s] %s", title, message);
+    sb.logInfo("[%s] %s", title, message);
 end
 
 ---Logs a warning message with a title
@@ -89,7 +89,7 @@ function prismaDebugLog.warn(message, title)
     end
 
 	title = title or "   PRISMA   ";
-    sb.logWarn("\n[%s] %s", title, message);
+    sb.logWarn("[%s] %s", title, message);
 end
 
 ---Logs an error message with a title
@@ -102,7 +102,7 @@ function prismaDebugLog.error(message, title)
     end
 
 	title = title or "   PRISMA   ";
-    sb.logError("\n[%s] %s", title, message);
+    sb.logError("[%s] %s", title, message);
 end
 
 

@@ -1,8 +1,9 @@
 {
   "author" : "^#00ffff;L^#25dbff;o^#49b7ff;n^#6e92ff;a^#926eff;a^#b749ff;s^#db25ff;a^#ff00ff;n^reset;",
-  "description" : "Prisma Core Multiplayer compatible",
-  "friendlyName" : "Prisma Core",
-  "name" : "prisma core",
+  "description" : "^#ffa3a3;P^#ffffa3;r^#a3ffa3;i^#a3ffff;s^#a3a3ff;m^#ffa3ff;a^reset; Modding API\n\nMultiplayer compatible\n\nSupport for Vanilla, Neon, OpenStarbound and OpenSB-derivatives\n\nGithub: https://github.com/Lonaasan/Prisma",
+  "friendlyName" : "^#ffa3a3;P^#ffffa3;r^#a3ffa3;i^#a3ffff;s^#a3a3ff;m^#ffa3ff;a^reset;",
+  "name" : "prisma",
   "priority" : 100,
   "version" : "0.0.0.1"
 }
+
