@@ -16,7 +16,7 @@
 	},
 	{
 		"op": "add",
-		"path": "/genericScriptContexts/starloader",
+		"path": "/genericScriptContexts/prisma",
 		"value" : "/prisma/core/generic.lua"
 	}
 ]

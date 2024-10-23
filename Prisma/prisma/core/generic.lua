@@ -16,13 +16,24 @@ local firstSuccessUpdate = true;
 
 string.prisma = string.prisma or {};
 string.prisma.debug = string.prisma.debug or {};
-string.prisma.debug.enabled = false;
+string.prisma.debug.enabled = true;
 
 string.prisma.api = string.prisma.api or {};
 string.prisma.api.mods = string.prisma.api.mods or {};
 
 function init(...)
+
     string.prisma.api.mods.TestMod = "TestMod Content";
+
+    prismaDebugLog.info("Checking the environment compatibility...");
+    local environments = {
+        neon = prismaCompatibilityCheck.IsNeon(),
+        star_extensions = prismaCompatibilityCheck.IsStarExtensions(),
+        open_starbound = prismaCompatibilityCheck.IsOpenStarbound(),
+        vanilla = prismaCompatibilityCheck.IsVanilla()
+    }
+
+    prismaDebugLog.info(environments);
     return _init(...);
 end
 
@@ -30,17 +41,6 @@ function update(...)
     if not localAnimator then
         localAnimator = string.prisma.localAnimator;
     elseif firstSuccessUpdate then
-
-        prismaDebugLog.info("Checking the environment compatibility...");
-        local environments = {
-            neon = prismaCompatibilityCheck.IsNeon(),
-            star_extensions = prismaCompatibilityCheck.IsStarExtensions(),
-            open_starbound = prismaCompatibilityCheck.IsOpenStarbound(),
-            vanilla = not prismaCompatibilityCheck.IsNeon() and not prismaCompatibilityCheck.IsStarExtensions() and
-                not prismaCompatibilityCheck.IsOpenStarbound()
-        }
-
-        prismaDebugLog.info(environments);
 
         prismaDebugLog.info("Got the LocalAnimator!");
 

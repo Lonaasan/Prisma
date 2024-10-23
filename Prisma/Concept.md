@@ -15,4 +15,8 @@
 
 ## How do we want to structure Prisma?
 
-- table structure (prisma.core, prisma.debug, prisma.debug.log, etc)
+- Table structure (prisma.core, prisma.debug, prisma.debug.log, etc)
+
+## How do we want to structure Prisma-compatible Mods?
+
+- Mods that work with prisma should (right now) write their mo

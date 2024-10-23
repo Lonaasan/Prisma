@@ -3,6 +3,17 @@ std = {
         std = {},
         neon = {},
         starExtensions = {},
+        prismaStorage = {
+            fields = {
+                get = {},
+                post = {},
+                put = {},
+                delete = {},
+                clear = {},
+                getAll = {},
+                exists = {}
+            }
+        },
         prismaAPIStorage = {},
         prismaAPI = {
             fields = {
@@ -31,7 +42,8 @@ std = {
             fields = {
                 IsNeon = {},
                 IsOpenStarbound = {},
-                IsStarExtensions = {}
+                IsStarExtensions = {},
+                IsVanilla = {}
             }
         },
         thirdpartyenabled = {},
@@ -329,7 +341,9 @@ std = {
                                 check = {
                                     fields = {
                                         IsNeon = {},
-                                        IsOpenStarbound = {}
+                                        IsOpenStarbound = {},
+                                        IsStarExtensions = {},
+                                        IsVanilla = {}
                                     }
                                 }
                             }
@@ -365,7 +379,8 @@ std = {
                                 },
                                 bridge = {}
                             }
-                        }
+                        },
+                        storage = {}
                     }
                 },
                 gsub = {},
@@ -597,7 +612,9 @@ std = {
         },
         assert = {},
         type = {},
-        storage = {},
+        storage = {
+            other_fields = true
+        },
         jobject = {},
         _reload = {},
         init = {},
