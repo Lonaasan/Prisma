@@ -1,5 +1,6 @@
 ---Prisma Storage | https://github.com/Lonaasan/Prisma/blob/main/Prisma/prisma/storage/storage.lua
 ---Author: Lonaasan
+require("/prisma/error/error.lua");
 
 string.prisma = string.prisma or {};
 string.prisma.storage = string.prisma.storage or {};
@@ -10,34 +11,34 @@ storage = storage or {};
 
 function prismaStorage.get(key)
     if storage[key] == nil then
-        error("Key does not exist", 2);
+        prismaError.throw("Key does not exist");
     end
     return storage[key];
 end
 
 function prismaStorage.post(key, value)
     if not key or not value then
-        error("Key or value is nil", 2);
+        prismaError.throw("Key or value is nil");
     end
     if storage[key] then
-        error("Key already exists", 2);
+        prismaError.throw("Key already exists");
     end
     storage[key] = value;
 end
 
 function prismaStorage.put(key, value)
     if not key or not value then
-        error("Key or value is nil", 2);
+        prismaError.throw("Key or value is nil");
     end
     if storage[key] == nil then
-        error("Key does not exist", 2);
+        prismaError.throw("Key does not exist");
     end
     storage[key] = value;
 end
 
 function prismaStorage.delete(key)
     if storage[key] == nil then
-        error("Key does not exist", 2);
+        prismaError.throw("Key does not exist");
     end
     storage[key] = nil;
 end

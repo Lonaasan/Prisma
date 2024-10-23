@@ -8,8 +8,6 @@ string.prisma.api.mods = string.prisma.api.mods or {};
 
 prismaAPI = {};
 
--- local prismaAPIStorage = {};
-
 function prismaAPI.registerMods()
     for modName, mod in pairs(string.prisma.api.mods) do
         if not prismaStorage.exists(modName) then
@@ -17,7 +15,6 @@ function prismaAPI.registerMods()
             string.prisma.debug.log.info("Mod: " .. mod);
             prismaStorage.post(modName, mod);
         end
-        -- prismaAPIStorage[modName] = mod;
     end
 end
 
@@ -26,8 +23,4 @@ function prismaAPI.getMods()
         string.prisma.debug.log.info("Key: " .. key);
         string.prisma.debug.log.info("Value: " .. value);
     end
-    -- or modName, mod in pairs(prismaAPIStorage) do
-    --    string.prisma.debug.log.info("Stored mod: " .. modName);
-    --    string.prisma.debug.log.info("Mod: " .. mod);
-    -- end
 end

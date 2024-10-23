@@ -3,6 +3,11 @@ std = {
         std = {},
         neon = {},
         starExtensions = {},
+        prismaError = {
+            fields = {
+                throw = {}
+            }
+        },
         prismaStorage = {
             fields = {
                 get = {},
@@ -380,7 +385,18 @@ std = {
                                 bridge = {}
                             }
                         },
-                        storage = {}
+                        storage = {
+                            fields =  {
+                                get = {},
+                                post = {},
+                                put = {},
+                                delete = {},
+                                clear = {},
+                                getAll = {},
+                                exists = {}
+                            }
+                        },
+                        error = {}
                     }
                 },
                 gsub = {},
