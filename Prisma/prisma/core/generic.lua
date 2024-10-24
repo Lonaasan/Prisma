@@ -45,6 +45,7 @@ function init(...)
         neon = prismaCompatibilityCheck.IsNeon(),
         star_extensions = prismaCompatibilityCheck.IsStarExtensions(),
         open_starbound = prismaCompatibilityCheck.IsOpenStarbound(),
+        x_starbound = prismaCompatibilityCheck.IsXStarbound(),
         vanilla = prismaCompatibilityCheck.IsVanilla()
     }
 
