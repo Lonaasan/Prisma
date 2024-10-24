@@ -55,5 +55,14 @@ function prismaStorage.exists(key)
     return storage[key] ~= nil;
 end
 
+--- function that returns true if the value of a key is not the same as the stored one
+function prismaStorage.isDifferent(key, value)
+    if not key or not value then
+        prismaError.throw("Key or value is nil");
+    end
+    return table.concat(storage[key]) ~= table.concat(value);
+end
+
+
 --- Export the functions for 3rd parties to use without the possibility of changing the original code
 string.prisma.storage = prismaStorage;

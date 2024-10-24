@@ -23,7 +23,22 @@ string.prisma.api.mods = string.prisma.api.mods or {};
 
 function init(...)
 
-    string.prisma.api.mods.TestMod = "TestMod Content";
+    string.prisma.api.mods.TestMod = {
+        author = "examplename",
+        description = "exampletext",
+        scripts = {
+            examplescript = {
+                scriptpath = "/path/to/your/examplescript.lua",
+                options = {
+                    autostart = true
+                    },
+                tables = {
+                    tech = true,
+                    localAnimator = true
+                }
+            }
+        }
+    };
 
     prismaDebugLog.info("Checking the environment compatibility...");
     local environments = {

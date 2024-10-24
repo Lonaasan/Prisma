@@ -16,7 +16,8 @@ std = {
                 delete = {},
                 clear = {},
                 getAll = {},
-                exists = {}
+                exists = {},
+                isDifferent = {}
             }
         },
         prismaAPIStorage = {},
@@ -393,7 +394,8 @@ std = {
                                 delete = {},
                                 clear = {},
                                 getAll = {},
-                                exists = {}
+                                exists = {},
+                                isDifferent = {}
                             }
                         },
                         error = {}

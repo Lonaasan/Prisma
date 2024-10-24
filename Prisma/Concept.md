@@ -19,4 +19,23 @@
 
 ## How do we want to structure Prisma-compatible Mods?
 
-- Mods that work with prisma should (right now) write their mo
+Mods that work with prisma should (right now) write their mods into string.prisma.api.mods like this:
+
+```json
+string.prisma.api.mods.name = {
+    "author": "examplename",
+    "description": "exampletext",
+    "scripts": {
+        "examplescript": {
+            "scriptpath": "/path/to/your/examplescript.lua",
+            "options": {
+                "autostart": true
+                },
+            "tables": {
+                "tech":true,
+                "localAnimator":true
+            }
+        }
+    }
+}
+```
