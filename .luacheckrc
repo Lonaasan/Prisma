@@ -12,19 +12,32 @@ std = {
             fields = {
                 get = {},
                 post = {},
-                put = {},
+                patch = {},
                 delete = {},
                 clear = {},
                 getAll = {},
                 exists = {},
-                isDifferent = {}
+                isDifferent = {},
+                removeOld = {},
+                getInTag = {},
+                postInTag = {},
+                patchInTag = {},
+                deleteInTag = {},
+                clearInTag = {},
+                getAllInTag = {},
+                existsInTag = {},
+                isDifferentInTag = {},
+                removeOldInTag = {}
             }
         },
         prismaAPIStorage = {},
         prismaAPI = {
             fields = {
                 registerMods = {},
-                getMods = {}
+                getMods = {},
+                getMod = {},
+                deleteMod = {},
+                clearMods = {}
             }
         },
         prismaDebugLuacheck = {
@@ -50,6 +63,11 @@ std = {
                 IsOpenStarbound = {},
                 IsStarExtensions = {},
                 IsVanilla = {}
+            }
+        },
+        PrismaUtils = {
+            fields = {
+                equals = {},
             }
         },
         thirdpartyenabled = {},
@@ -390,7 +408,7 @@ std = {
                             fields =  {
                                 get = {},
                                 post = {},
-                                put = {},
+                                patch = {},
                                 delete = {},
                                 clear = {},
                                 getAll = {},
@@ -398,7 +416,12 @@ std = {
                                 isDifferent = {}
                             }
                         },
-                        error = {}
+                        error = {},
+                        utils = {
+                            fields = {
+                                equals = {}
+                            }
+                        }
                     }
                 },
                 gsub = {},

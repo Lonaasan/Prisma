@@ -4,6 +4,7 @@ require("/prisma/debug/log.lua");
 require("/prisma/debug/luacheck.lua");
 require("/prisma/api/api.lua");
 require("/prisma/compatibility/check.lua");
+require("/prisma/storage/storage.lua");
 
 local _init = init or function()
 end;
@@ -12,7 +13,7 @@ end;
 local _uninit = uninit or function()
 end;
 
-local firstSuccessUpdate = true;
+local FIRST_SUCCESS_UPDATE = true;
 
 string.prisma = string.prisma or {};
 string.prisma.debug = string.prisma.debug or {};
@@ -22,8 +23,7 @@ string.prisma.api = string.prisma.api or {};
 string.prisma.api.mods = string.prisma.api.mods or {};
 
 function init(...)
-
-    string.prisma.api.mods.TestMod = {
+	string.prisma.api.mods.TestMod = {
         author = "examplename",
         description = "exampletext",
         scripts = {
@@ -55,11 +55,11 @@ end
 function update(...)
     if not localAnimator then
         localAnimator = string.prisma.localAnimator;
-    elseif firstSuccessUpdate then
+    elseif FIRST_SUCCESS_UPDATE then
 
         prismaDebugLog.info("Got the LocalAnimator!");
 
-        firstSuccessUpdate = false;
+        FIRST_SUCCESS_UPDATE = false;
 
         -- prismaDebugLog.detailedTableTree(_ENV, "");
 
