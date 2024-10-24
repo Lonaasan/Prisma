@@ -24,11 +24,17 @@ function prismaCompatibilityCheck.IsOpenStarbound()
     return root.assetJson("/player.config:genericScriptContexts").OpenStarbound ~= nil;
 end
 
+---Check we are running in XStarbound
+---@return boolean
+function prismaCompatibilityCheck.IsXStarbound()
+    return xsb ~= nil;
+end
+
 ---Check we are running in Vanilla
 ---@return boolean
 function prismaCompatibilityCheck.IsVanilla()
     return not prismaCompatibilityCheck.IsNeon() and not prismaCompatibilityCheck.IsStarExtensions() and
-        not prismaCompatibilityCheck.IsOpenStarbound();
+        not prismaCompatibilityCheck.IsOpenStarbound() and not prismaCompatibilityCheck.IsXStarbound();
 end
 
 --- Export the functions for 3rd parties to use without the possibility of changing the original code

@@ -3,6 +3,7 @@ std = {
         std = {},
         neon = {},
         starExtensions = {},
+        xsb = {},
         prismaError = {
             fields = {
                 throw = {}
@@ -62,6 +63,7 @@ std = {
                 IsNeon = {},
                 IsOpenStarbound = {},
                 IsStarExtensions = {},
+                IsXStarbound = {},
                 IsVanilla = {}
             }
         },
