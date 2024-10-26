@@ -4,6 +4,7 @@ require("/prisma/debug/log.lua");
 require("/prisma/debug/luacheck.lua");
 require("/prisma/api/api.lua");
 require("/prisma/compatibility/check.lua");
+require("/prisma/compatibility/version.lua");
 require("/prisma/storage/storage.lua");
 
 local _init = init or function()
@@ -23,7 +24,7 @@ string.prisma.api = string.prisma.api or {};
 string.prisma.api.mods = string.prisma.api.mods or {};
 
 function init(...)
-	string.prisma.api.mods.TestMod = {
+    string.prisma.api.mods.TestMod = {
         author = "examplename",
         description = "exampletext",
         scripts = {
@@ -50,6 +51,17 @@ function init(...)
     }
 
     prismaDebugLog.info(environments);
+
+    prismaDebugLog.info("Testing the version compatibility script...");
+
+    local versions = {
+        example0 = "1.2.3",
+        example1 = "~43.6.2",
+        example2 = "^8.9.4",
+        example3 = "*4.12.7"
+    };
+    prismaDebugLog.info( prismaCompatibilityVersion.parseVersions(versions));
+
     return _init(...);
 end
 
@@ -62,7 +74,7 @@ function update(...)
 
         FIRST_SUCCESS_UPDATE = false;
 
-        -- prismaDebugLog.detailedTableTree(_ENV, "");
+        --prismaDebugLog.detailedTableTree(_ENV, "");
 
         -- local resultTable = prismaDebugLuacheck.globalsTable(_ENV)
         -- local resultString = prismaDebugLuacheck.customEncode(resultTable)

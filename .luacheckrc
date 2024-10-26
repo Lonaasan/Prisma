@@ -67,6 +67,12 @@ std = {
                 IsVanilla = {}
             }
         },
+        prismaCompatibilityVersion = {
+            fields = {
+                parseSingleVersion = {},
+                parseVersions = {}
+            }
+        },
         PrismaUtils = {
             fields = {
                 equals = {},
@@ -370,6 +376,12 @@ std = {
                                         IsOpenStarbound = {},
                                         IsStarExtensions = {},
                                         IsVanilla = {}
+                                    }
+                                },
+                                version = {
+                                    fields = {
+                                        parseSingleVersion = {},
+                                        parseVersions = {}
                                     }
                                 }
                             }

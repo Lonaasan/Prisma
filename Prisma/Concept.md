@@ -25,6 +25,13 @@ Mods that work with prisma should (right now) write their mods into string.prism
 string.prisma.api.mods.name = {
     "author": "examplename",
     "description": "exampletext",
+    "version": "1.0.0",
+    "requires": {
+        "examplerequire": "1.2.3",   // exact version
+        "examplerequire1": "*3.0.0", // * Major releases
+        "examplerequire2": "^2.1.1", // ^ Minor releases
+        "examplerequire3": "~2.4.3", // ~ Patch releases
+    },
     "scripts": {
         "examplescript": {
             "scriptpath": "/path/to/your/examplescript.lua",

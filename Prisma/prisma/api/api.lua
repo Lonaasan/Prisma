@@ -20,7 +20,7 @@ function prismaAPI.registerMods()
     end
     for modName, mod in pairs(string.prisma.api.mods) do
         if not prismaStorage.existsInTag(MOD_TAG, modName) then
-            prismaDebugLog.info("Registering mod: " .. modName);
+            prismaDebugLog.info("Registering new mod: " .. modName);
             prismaDebugLog.info(mod);
             prismaStorage.postInTag(MOD_TAG, modName, mod);
         elseif prismaStorage.isDifferentInTag(MOD_TAG, modName, mod) then
@@ -32,7 +32,7 @@ function prismaAPI.registerMods()
 end
 
 function prismaAPI.getMods()
-    prismaDebugLog.info("Getting mods");
+    prismaDebugLog.info("Getting all mods from prisma storage");
     for key, value in pairs(prismaStorage.getAllInTag(MOD_TAG)) do
         prismaDebugLog.info("Mod: " .. key);
         prismaDebugLog.info(value);
@@ -51,7 +51,7 @@ end
 function prismaAPI.deleteMod(modName)
     if prismaStorage.existsInTag(MOD_TAG, modName) then
         prismaDebugLog.info("Deleting mod: " .. modName);
-        prismaStorage.deleteInTag(modName);
+        prismaStorage.deleteInTag(MOD_TAG, modName);
     else
         prismaDebugLog.info("Mod: " .. modName .. " does not exist");
     end
