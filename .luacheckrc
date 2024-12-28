@@ -6,7 +6,7 @@ std = {
         xsb = {},
         prismaError = {
             fields = {
-                throw = {}
+                panic = {}
             }
         },
         prismaStorage = {

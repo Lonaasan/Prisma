@@ -18,7 +18,7 @@ local FIRST_SUCCESS_UPDATE = true;
 
 string.prisma = string.prisma or {};
 string.prisma.debug = string.prisma.debug or {};
-string.prisma.debug.enabled = true;
+string.prisma.debug.enabled = false;
 
 string.prisma.api = string.prisma.api or {};
 string.prisma.api.mods = string.prisma.api.mods or {};

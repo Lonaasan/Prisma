@@ -5,7 +5,11 @@ string.prisma.error = string.prisma.error or {};
 
 prismaError = {};
 
-function prismaError.throw(errorMessage, errorLevel)
+
+---Panic: Error handling function that stops the execution of the script and prints the error message
+---@param errorMessage string
+---@param errorLevel number
+function prismaError.panic(errorMessage, errorLevel)
     errorLevel = errorLevel or 3;
     error(errorMessage, errorLevel);
 end

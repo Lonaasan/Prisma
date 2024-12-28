@@ -42,7 +42,7 @@ function prismaCompatibilityVersion.parseSingleVersion(version)
         parsedVersion["max"] = major .. "." .. minor
 
     else
-        error("Invalid version format: " .. version)
+        prismaError.panic("Invalid version format: " .. version)
     end
 
     return parsedVersion
